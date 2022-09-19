@@ -4,8 +4,7 @@ import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
 
 export default function Home({products}) {
-    return (
-        <div className={"relative"}>
+    return (<div className={"relative"}>
             <div className={"absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20"}/>
             <Head>
                 <title>Amazon 2.0</title>
@@ -17,18 +16,17 @@ export default function Home({products}) {
                 {/*Banner*/}
                 <Banner/>
                 {/*ProductFeed*/}
-                <ProductFeed products={products} />
+                <ProductFeed products={products}/>
             </main>
 
-        </div>
-    );
+        </div>);
 }
 
-export async function getServerSideProps(context){
-    const products = await fetch("https://fakestoreapi.com/products").then(
-        (res) => res.json()
-    );
-    return {props: {
-        products,
-        }}
+export async function getServerSideProps(context) {
+    const products = await fetch("https://fakestoreapi.com/products").then((res) => res.json());
+    return {
+        props: {
+            products,
+        }
+    }
 }
