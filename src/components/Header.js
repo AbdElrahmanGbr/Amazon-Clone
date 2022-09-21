@@ -1,7 +1,10 @@
 import Image from "next/image";
 import {Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon} from "@heroicons/react/24/outline";
+import {signIn, signOut, useSession} from "next-auth/react";
 
 function Header() {
+    const { data: session, status } = useSession();
+    const loading = status === "loading";
     return (<header>
         {/*Top nav*/}
         <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
@@ -19,8 +22,8 @@ function Header() {
 
             {/*Right*/}
             <div className={"text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap"}>
-                <div className={"link"}>
-                    <p>Hello Hlbessa</p>
+                <div onClick={!session ? () => signIn() : signOut} className={"link"}>
+                    <p>{session ? `Hello, ${session.user.name}`: "Sign In"}</p>
                     <p className={"font-extrabold md:text-sm"}>Account & List</p>
                 </div>
                 <div className={"link"}>
