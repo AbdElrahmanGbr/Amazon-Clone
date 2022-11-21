@@ -29,6 +29,8 @@
 
 ## About The Project
 
+[AmazonClone.webm](https://user-images.githubusercontent.com/99536233/203070234-c1a4f186-91bb-4c66-8718-b92fa6c3ee32.webm)
+
 A Responsive Amazon Clone Web App:
 
 Features:
